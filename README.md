@@ -16,3 +16,7 @@ URL：https://datsusmartphonenew.herokuapp.com/login_form.php
 十分お気をつけください。責任を一切負いかねます。
 
 使用言語：PHP 8.0.12
+
+
+2022.3.10
+ログイン時にログイン成功した際、マイページに自動遷移させるようにしました。
