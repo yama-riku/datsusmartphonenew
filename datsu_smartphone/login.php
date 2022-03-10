@@ -34,7 +34,7 @@ if (!$result) {
     header('Location: login_form.php');
     return;
 }else {
-    header('Loction: task.php');
+    header('Location: taskpage.php');
 }
 
 
