@@ -19,4 +19,4 @@ URL：https://datsusmartphonenew.herokuapp.com/login_form.php
 
 記録
 2022.3.10
-ログイン時にログイン成功した際、マイページに自動遷移させるようにしました。
+ログイン時にログイン成功した際、タスクページに自動遷移させるようにしました。
