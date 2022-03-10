@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    /* text-decoration:none; */
+    list-style-type: none;
+    margin: 0;
+}
+
+/* モバイルとpc同じ */
+
+main {
+    min-height: 100vh;
+    background-color: rgb(107, 150, 116);
+    position: relative;
+}
+
+.alert {
+    padding-top:1%;
+    padding-left: 1%;
+    line-height:2rem;
+}
+
+.alert h1 {
+    font-size:1.0rem;
+}

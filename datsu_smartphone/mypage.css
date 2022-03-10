@@ -1,0 +1,307 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    /* text-decoration:none; */
+    list-style-type: none;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+select {
+    -webkit-appearance: none;
+}
+
+/* モバイルファーストで実践していく */
+/* モバイル */
+main {
+    min-height: 100vh;
+    background-color: rgb(107, 150, 116);
+    position: relative;
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-left) + .2rem)
+}
+
+/* ページタイトル */
+.user_name {
+    /* position:absolute; */
+    text-align: center;
+    padding-top: 7.5%;
+    left: 50%; 
+    /* transform: translate(-50%,0%); */
+}
+
+.user_name h1 {
+    font-size: 1.4rem;
+}
+
+/* 月別選択 ----------------------------------------------------*/
+.form-control {
+    position: absolute;
+    left: 2%;
+    background-color:rgb(238, 227, 162) ;
+    z-index: 0;
+    top:8.5rem;
+    margin-left: calc(env(safe-area-inset-left) + .2em);
+    font-size:1.0rem;
+}
+
+/* カレンダーの装飾 -------------------------------------------- */
+.table-bordered {
+    width: 95%;
+    /* position: absolute; */
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 2.25%;
+    left: 50%;
+    /* transform: translate(-50%,0%); */
+    border:1px solid;
+    background-color: rgb(238, 227, 162);
+    border-collapse:collapse;
+    /* table-layout: fixed; */
+}
+
+.column {
+    background-color: rgb(238, 220, 140);
+}
+
+.table-bordered th {
+    border:solid 1px rgb(238, 211, 59);
+
+}
+
+.table-bordered td {
+    border:solid 1px rgb(238, 211, 59);
+}
+
+.fas {
+    color: black;
+} 
+
+/* 消すか相談------------------------------------------------------------------------------ */
+.comment_break {
+    word-break: break-all;
+}
+
+
+
+
+
+
+/* ページの選択 --------------------------------------------- */
+/* セレクトバーの装飾 */
+.select {
+    width:95%;
+    /* position:absolute; */
+    display: flex;
+    justify-content: center;
+    /* top: 5%; */
+    margin-top:5%;
+    margin-left: 2.25%;
+    background-color: rgb(238, 227, 162);
+    /* left: 50%; */
+    /* transform: translate(-50%,-50%); */
+}
+
+.task {
+    width:33%;
+    text-align:center;
+    background-color: rgb(238, 227, 162);
+}
+
+.tasks{
+    color:rgb(245, 178, 69);
+    font-size:1.2rem;
+    padding-top:2%;
+    padding-bottom: 2%;
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+.mypage {
+    width:33%;
+    text-align:center;
+}
+
+.mypages{
+    color:rgb(245, 178, 69);
+    font-size:1.2rem;
+    padding-top:2%;
+    padding-bottom: 2%;
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+.logout {
+    width:33%;
+    text-align:center;
+    /* font-size: 2rem; */
+}
+
+.logouts {
+    width:5rem;
+    padding-bottom: 3%;
+    padding-top: 4%;
+    font-size: 0.95rem;
+    color:rgb(245, 178, 69);
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+/* 編集の装飾 */
+.edit {
+    width:95%;
+    /* position: absolute; */
+    background-color: rgb(238, 227, 162);
+    margin-top:17.5%;
+    margin-left: 2.25%;
+    padding:1% 3%;
+    text-align: center;
+    top: 45%;
+    /* transform: translate(-50%,-50%); */
+
+}
+
+.edit_header h1 {
+    background-color: rgb(238, 211, 59);
+    font-size: 1.2rem;
+}
+
+.edit_semiheader {
+    display: flex;
+    margin:2% 0;
+}
+
+.edit_semiheader h2 {
+    font-size:1.0rem;
+    /* margin-top:1%; */
+    
+}
+
+.input_day {
+    width:5rem;
+    background-color:rgb(255, 247, 204);
+    border: 0px none;
+}
+
+.input_comment {
+    background-color:rgb(255, 247, 204);
+    border: 0px none;
+}
+
+.input_edit {
+    color:black;
+    background-color: rgb(238, 216, 90);
+    border-color:rgb(236, 148, 6);
+}
+
+.input_edit:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+
+}
+
+.correct_day {
+    font-size: 0.75rem;
+    color: rgb(180, 6, 6);
+    padding-top: 1%;
+}
+
+/* 〇の色の装飾 */
+.aka  {
+    color: red;
+    font-size:1.2rem;
+}
+
+.kiro {
+    color:yellow;
+    font-size:1.2rem;
+}
+
+.midori {
+    color:green;
+    font-size:1.2rem;
+}
+
+.footer {
+    margin-top:5%;
+    padding-bottom:2%;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+
+/* タブレット版 */
+@media screen and (min-width:600px) {
+    
+    /* 月別リスト */
+    .form-control {
+        top: 15.10rem;
+    }
+
+    /* 編集リスト */
+    .edit {
+        width:55%;
+        margin-left: 22.5%;
+    }
+
+    /* セレクトリスト */
+    .tasks {
+        font-size: 1.2rem;
+        padding-top:4%;
+        padding-bottom:3%;
+    }
+
+    .mypages {
+        font-size: 1.2rem;
+        padding-top:4%;
+        padding-bottom:3%;
+    }
+
+    .logouts {
+        width:auto;
+        font-size: 1.2rem;
+    }
+
+
+
+
+}
+
+
+
+/* pc版 */
+@media screen and (min-width:1024px) {
+
+    /* 月別リスト */
+    .form-control {
+        width: 8rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        top: 23rem;
+    }
+
+    .footer {
+        font-size: .8rem;
+    }
+
+    .correct_day {
+        font-size: 1.0rem;
+        padding-top: 0;
+    }
+
+    
+}
+
+
+
+
+
+

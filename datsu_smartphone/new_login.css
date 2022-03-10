@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    text-decoration:none;
+    list-style-type: none;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+/* モバイルファーストで作成していく */
+
+/* モバイル版 */
+main {
+    min-height: 100vh;
+    background-color: rgb(107, 150, 116);
+    position: relative;
+}
+
+
+
+.new_login {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.login_sub {
+    text-align: center;
+}
+
+/* ページタイトル */
+.new_login h1 {
+    font-size: 1.75rem;
+}
+
+/* user登録欄 */
+.privatedata {
+    margin-top: 7.75%;
+    text-align:left;
+}
+
+.new_submit {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.userdata {
+    background-color: rgb(255, 247, 204);
+}
+
+/* ログイン画面遷移 */
+.return {
+    text-align: center;
+    margin-top: 5%;
+}
+
+/* 新規登録ボタン */
+.input_user {
+    color:black;
+    background-color: rgb(224, 210, 129);
+    border-color:rgb(236, 148, 6);
+}
+
+.input_user:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+
+}
+
+/* 警告文 */
+.alert {
+    font-size: 0.75rem;
+    color:rgb(180, 6, 6);
+}
+
+/* pc版 */
+@media screen and (min-width:1024px) {
+
+    *{
+        font-size:1.1rem;
+    }
+
+}

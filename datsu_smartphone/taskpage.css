@@ -1,0 +1,287 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    text-decoration:none;
+    list-style-type: none;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+/* モバイルファーストで実装していく */
+/* モバイル */
+
+main {
+    min-height: calc(100vh - 1.45rem);
+    background-color: rgb(107, 150, 116);
+    padding-left: calc(env(safe-area-inset-left) + .2em);
+    padding-right: calc(env(safe-area-inset-left) + .2em);
+    position: relative;
+}
+
+/* タイマーボタン */
+.timer {
+    width:95%;
+    text-align: center;
+    margin-left: 2.25%;
+    margin-top: 27%;
+    padding-bottom: 15%;
+    line-height: 5rem;
+    
+}
+
+
+.output_cauculate {
+    font-size: 1.2rem;
+}
+
+.t_start {
+    width:150px;
+    font-size: 1.2rem;
+    background-color: rgb(238, 227, 162);
+    border-color:rgb(236, 148, 6);
+}
+
+.t_start:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+}
+
+.t_stop {
+    margin-top: 10%;
+    width:150px;
+    font-size: 1.2rem;
+    background-color: rgb(238, 227, 162);
+    border-color:rgb(236, 148, 6);
+}
+
+.t_stop:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+}
+
+.nonempty {
+    font-size: 1.2rem;
+}
+
+.t_reset {
+    margin-top:10%;
+    width:150px;
+    font-size: 1.2rem;
+    background-color: rgb(238, 227, 162);
+    border-color:rgb(236, 148, 6);
+}
+
+.t_reset:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+}
+
+
+/* ページタイトル */
+.user_name {    
+    text-align: center;
+    padding-top: 17.5%;
+    left: 50%; 
+}
+
+.user_name h1 {
+    font-size: 1.4rem;
+}
+
+
+
+/* セレクトバーの装飾 */
+.select {
+    width:95%;
+    display: flex;
+    justify-content: center;
+    margin-top:10%;
+    margin-left: 2.25%;
+    background-color: rgb(238, 227, 162);
+}
+
+.task {
+    width:33%;
+    text-align:center;
+    background-color: rgb(238, 227, 162);
+}
+
+.tasks{
+    color:rgb(245, 178, 69);
+    font-size:1.2rem;
+    padding-top:2%;
+    padding-bottom: 2%;
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+.mypage {
+    width:33%;
+    text-align:center;
+}
+
+.mypages{
+    color:rgb(245, 178, 69);
+    font-size:1.2rem;
+    padding-top:2%;
+    padding-bottom: 2%;
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+.logout {
+    width:33%;
+    text-align:center;
+}
+
+.logouts {
+    width:5rem;
+    padding-bottom: 3%;
+    padding-right: 3%;
+    padding-top: 4%;
+    font-size: 0.95rem;
+    color:rgb(245, 178, 69);
+    background-color: rgb(238, 227, 162);
+    border:0px none;
+}
+
+
+/* フッター */
+footer {
+    background-color: rgb(107, 150, 116);
+    /* margin-top:5%; */
+    padding-bottom:0.5rem;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+/* 表示文字 (計測中・スタートボタンを押してください) */
+.pc_only {
+    display: none;
+}
+
+
+
+
+@media screen and (min-width:600px) {
+
+    /* ページタイトル */
+
+    .user_name {
+        padding-top: 15%;
+    }
+
+    .user_name h1 {
+        font-size: 1.7rem;
+    }
+
+
+    /* セレクトリスト */
+    .tasks {
+        font-size: 1.2rem;
+        padding-top:4%;
+        padding-bottom:3%;
+    }
+
+    .mypages {
+        font-size: 1.2rem;
+        padding-top:4%;
+        padding-bottom:3%;
+    }
+
+    .logouts {
+        width:auto;
+        font-size: 1.2rem;
+    }
+
+    /* タイマーボタン */
+    .timer {
+        margin-top: 20%;
+
+    }
+
+    .output_cauculate {
+        font-size: 1.5rem;
+    }
+
+    .t_start {
+        font-size:1.5rem;
+    }
+
+    .t_stop {
+        font-size:1.5rem;
+    }
+
+    .nonempty {
+        font-size: 1.5rem;
+    }
+
+    .t_reset {
+        font-size:1.5rem;
+
+    }
+
+
+
+}
+
+
+@media screen and (min-width:1024px) {
+
+    /* ページタイトル */
+    .user_name {
+        padding-top: 5%;
+    }
+    
+    /* セレクトバー */
+    .select {
+        margin-top:5%;
+    }
+
+    /* タイマーボタン */
+    .timer {
+        margin-top:5%;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5%;
+        letter-spacing:6%;
+        /* align-items: center; */
+        
+    }
+
+    /* 表示文字 (計測中・スタートボタンを押してください) */
+    .output_cauculate {
+        display: none;
+    }
+
+    .nonempty {
+        display: none;
+    }
+
+    .pc_only {
+        display: unset;
+        margin-left: 2.25%;
+        width: 95%;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .pc_only1 {
+        display: unset;
+    }
+
+
+
+
+
+
+
+}

@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* 共通 */
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+*{
+    text-decoration:none;
+    list-style-type: none;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+/* モバイルファーストで作成していく */
+
+/* モバイル版 */
+main {
+    min-height: 100vh;
+    background-color: rgb(107, 150, 116);
+    position: relative;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-57.5%);
+    line-height: 200%;    
+}
+
+/* ページタイトル */
+.login h1 {
+    text-align: center;
+}
+
+/* user登録欄 */
+.privatedata {
+    margin-top: 15%;     
+}
+
+.email {
+    width:100%;
+    background-color: rgb(255, 247, 204);
+
+}
+
+.password {
+    width: 100%;
+    background-color: rgb(255, 247, 204);
+}
+
+.button {
+    text-align: center;
+}
+
+.new_login {
+    margin-top: 5%;
+    text-align: center;
+}
+
+/* ログインボタン */
+.login_button {
+    color:black;
+    background-color: rgb(224, 210, 129);
+    border-color:rgb(236, 148, 6);    
+}
+
+.login_button:hover {
+    color: white;
+    background-color:rgb(236, 148, 6);
+} 
+
+/* 警告文 */
+.alert {
+    font-size: 0.7rem;
+    color:rgb(180, 6, 6);
+}
+
+
+/* pc版 */
+@media screen and (min-width:1024px) {
+
+    *{
+        font-size:1.1rem;
+    }
+
+    .login h1 {
+        font-size:1.75rem;
+    }
+
+    .alert {
+        font-size: 0.8rem;
+    }
+}

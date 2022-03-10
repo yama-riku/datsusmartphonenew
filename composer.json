@@ -1,0 +1,12 @@
+{
+    "require": {
+        "alrik11es/cowsayphp": "^1.2",
+        "csanquer/pdo-service-provider": "~1.1dev"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  },
+  "config": {
+    "bin-dir": "vendor/bin"
+  }
+}
