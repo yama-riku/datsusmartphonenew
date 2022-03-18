@@ -1,4 +1,4 @@
-<?php
+<?
 session_start();
 require_once '../classes/UserLogic.php';
 require_once '../functions.php';
@@ -213,12 +213,12 @@ if ($answer = filter_input(INPUT_POST,'answer')) {
             <?php endif;?> 
             <form name="sw" method="POST" action="taskpage.php">
             <input type="hidden" name="answer" value="1">
-            <input type="submit" class  = "t_start" value="スタート" >
+            <input id = "start" type="submit" class  = "t_start" value="スタート" >
             </form>
 
             <form name="sw" method="POST" action="taskpage.php" >
             <input type="hidden" name="answer" value="2">
-            <input type="submit" class = "t_stop" value="ストップ">
+            <input id = "stop" type="submit" class = "t_stop" value="ストップ">
             </form>
             <?php if (isset($nonempty)) :?>
                 <p class = "nonempty"><?php echo $nonempty;?></p>
@@ -226,8 +226,9 @@ if ($answer = filter_input(INPUT_POST,'answer')) {
 
             <form name="sw" method="POST" action="taskpage.php" >
             <input type="hidden" name="answer" value="3">
-            <input type="submit" class = "t_reset" value="リセット">
+            <input id = "reset" type="submit" class = "t_reset" value="リセット">
         </div>
+
 
         <div class = "pc_only">
             <?php if (isset($output_cauculate)) :?>

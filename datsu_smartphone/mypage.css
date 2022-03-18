@@ -177,16 +177,42 @@ main {
 .edit_semiheader {
     display: flex;
     margin:2% 0;
+    
 }
 
 .edit_semiheader h2 {
     font-size:1.0rem;
-    /* margin-top:1%; */
     
 }
 
 .input_day {
     width:5rem;
+    background-color:rgb(255, 247, 204);
+    border: 0px none;
+}
+
+.edit_semiheader p {
+    font-size:1.0rem;
+}
+
+.input_hour {
+    margin-left:1rem;
+    width:2rem;
+    font-size: 1.0rem;
+    background-color:rgb(255, 247, 204);
+    border: 0px none;
+}
+
+.input_minute {
+    width:2rem;
+    font-size: 1.0rem;
+    background-color:rgb(255, 247, 204);
+    border: 0px none;
+}
+
+.input_second {
+    width:2rem;
+    font-size: 1.0rem;
     background-color:rgb(255, 247, 204);
     border: 0px none;
 }
@@ -212,6 +238,17 @@ main {
     font-size: 0.75rem;
     color: rgb(180, 6, 6);
     padding-top: 1%;
+}
+
+.sptOnly {
+    display: flex;
+    margin-bottom:3%;
+    margin-top: -0.7rem;        
+}
+
+.pcOnly {
+    display:none;
+    
 }
 
 /* 〇の色の装飾 */
@@ -278,7 +315,7 @@ main {
 
 
 /* pc版 */
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1025px) {
 
     /* 月別リスト */
     .form-control {
@@ -295,6 +332,14 @@ main {
     .correct_day {
         font-size: 1.0rem;
         padding-top: 0;
+    }
+
+    .pcOnly {
+        display: block;
+    }
+
+    .sptOnly {
+        display: none;
     }
 
     

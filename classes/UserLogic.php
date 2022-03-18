@@ -354,8 +354,7 @@ class UserLogic
 
 
     // mypage.phpの実装--------------------------------------------
-    // $yyyymm = date('Y-m');
-    //　ワークテーブルのデータを取得
+    
     /**
      * ワークテーブルのデータを取得
      * @param array $workData
@@ -391,7 +390,113 @@ class UserLogic
     }
 
     /**
-     *datsu_workテーブルにあるタスクデータ取得
+     *datsu_workテーブルにあるタスクデータ取得(時間修正時)
+     */
+    public static function editdataTime($editData,$editDate)
+    {
+      /**
+     * 時間をデータから取り出す
+     * @param array $editData
+     * @return bool $result
+     */
+    
+      
+      $sql = 'SELECT datsu_work.date 
+                    ,datsu_work.time
+                FROM datsu_work
+               WHERE datsu_work.email = ?
+                 AND datsu_work.date = ?
+            ';
+
+      //　タイマーデータを配列に加える
+      $arr = [];
+      $arr[] = $editData;
+      $arr[] = $editDate;
+    
+      try {
+        $stmt = connect()->prepare($sql);
+        $stmt->execute($arr);
+        //sqlの結果を返す
+        $user = $stmt->fetch();
+        return $user;
+      }catch(\Exception $e){
+        return false;
+      }
+
+      
+    }
+
+    /**
+     *編集した新しい時間入力(アップデート登録)
+     */
+    public static function updateTime($update_time)
+    {
+      /**
+     * @param array $update_time
+     * @return bool $result
+     */
+
+
+      $result = false;
+        
+
+      $sql = 'UPDATE datsu_work
+                 SET time = ?
+               WHERE datsu_work.email = ? AND datsu_work.date = ?
+            ';
+
+      //　配列に加える
+      $arr = [];
+      $arr[] = $update_time['time'];
+      $arr[] = $update_time['email'];
+      $arr[] = $update_time['date'];
+
+    
+      try {
+        $stmt = connect()->prepare($sql);
+        $result = $stmt->execute($arr);        
+        return $result;
+      }catch(\Exception $e){
+        return $result;
+      }
+      
+    }
+
+    /**
+     *入力されてない日付のコメントを入力する
+     */
+    public static function newTime($newtime)
+    {
+      /**
+     * 時間を登録する
+     * @param array $newtime
+     * @return bool $result
+     */
+      
+      $result = false;
+
+      $sql = 'INSERT INTO datsu_work(email,date,time) VALUES (?,?,?)';
+
+      //　タイマーデータを配列に加える
+      $arr = [];
+      $arr[] = $newtime['email'];
+      $arr[] = $newtime['date'];
+      $arr[] = $newtime['time'];
+    
+      try {
+        $stmt = connect()->prepare($sql);
+        $result = $stmt->execute($arr);
+        return $result;
+      }catch(\Exception $e){
+        return $result;
+      }
+
+      
+    }
+
+
+    /**
+     *datsu_workテーブルにあるタスクデータ取得(コメント修正時)
      */
     public static function editdata($editData,$editDate)
     {
@@ -401,9 +506,7 @@ class UserLogic
      * @return bool $result
      */
     
-      // var_dump($today);
       
-      // emailとdateは後で消す
       $sql = 'SELECT datsu_work.date 
                     ,datsu_work.comment
                 FROM datsu_work
@@ -499,42 +602,7 @@ class UserLogic
       
     }
 
-    // /**
-    //  *モーダルでコメントを入力
-    //  */
-    // public static function createmodal($create_modal)
-    // {
-    //   /**
-    //  * 時間をデータから取り出して差分を出力する2
-    //  * @param array $updateData
-    //  * @return bool $result
-    //  */
-
-    //   $result = false;
-      
-      
-
-    //   $sql = 'UPDATE datsu_work
-    //              SET comment = ?
-    //            WHERE datsu_timer.email = ? AND 
-    //         ';
-
-    //   //　タイマーデータを配列に加える
-    //   $arr = [];
-    //   $arr[] = $create_modal['comment'];
-    //   $arr[] = $create_modal['email'];
-
-
     
-    //   try {
-    //     $stmt = connect()->prepare($sql);
-    //     $result = $stmt->execute($arr);        
-    //     return $result;
-    //   }catch(\Exception $e){
-    //     return $result;
-    //   }
-      
-    // }
 
 
 

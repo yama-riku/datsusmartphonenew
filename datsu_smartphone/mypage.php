@@ -51,6 +51,66 @@ if ( isset( $_POST['edit_month'] ) ) {
             
             $edit_date = $edit_month.'-'.$edit_day;
             
+            // 時間が入力されているか（空でもいい）
+            if( isset($_POST['edit_hour'],$_POST['edit_minute'],$_POST['edit_second'])) {
+
+                // 各値をそれぞれ変数に入れる
+                $edit_hour = $_POST['edit_hour'];
+                $edit_minute = $_POST['edit_minute'];
+                $edit_second = $_POST['edit_second'];
+                
+                // $edit_hourの値が24未満であるか判定 
+                if($edit_hour < 24) {
+                    // データベースに保存するためにフォーマットを合わせる
+                    $format = "%02d:%02d:%02d";
+                    $edit_time = sprintf($format,$edit_hour,$edit_minute,$edit_second);
+                    // データベースから該当する日付の時間を取ってくる
+                    $editDataTime = UserLogic::editdataTime($login_user['email'],$edit_date);
+
+                    if(isset($editDataTime['date'])) {
+
+                        // updateの実行
+                        $pdo = connect();
+                        $update_time['time'] = $edit_time;
+                        $update_time['email'] = $login_user['email'];
+                        $update_time['date'] = $editDataTime['date'];
+                        $updatetime = UserLogic::updateTime($update_time);
+
+                        // ページに反映
+                        $work_table = UserLogic::getworktable($login_user['email']);
+
+                    }else {
+
+                        // 新規入力もできるようにする
+                        $pdo =connect();
+
+                        $newtime['email'] = $login_user['email'];
+                        $newtime['date'] = $edit_date;
+                        $newtime['time'] = $edit_time;
+
+                        $new_time = UserLogic::newTime($newtime);
+
+                        // ページに反映
+                        $work_table = UserLogic::getworktable($login_user['email']);
+
+
+
+                    }
+                    
+                    
+
+
+
+                }else {
+                    $correct_day = '※正しい時間を入力して下さい';    
+                }
+                
+            }else {
+                $correct_day = '※正しい時間を入力して下さい';
+
+            }
+
+            
             // コメントが入力されているか（空でも良い）
             if ( isset( $_POST['edit_comment'] ) ) {
                 $edit_comment = $_POST['edit_comment'];
@@ -71,7 +131,7 @@ if ( isset( $_POST['edit_month'] ) ) {
 
 
                 }else{
-                    // ※ここ確認（falseが出る）※
+                
                     // まだ入力されたことがない新しいコメントを入力
                     $pdo = connect();
 
@@ -94,7 +154,7 @@ if ( isset( $_POST['edit_month'] ) ) {
         }   
 
     }else{
-        // ※確認
+        
         $correct_day = ' ※正しい日付を入力して下さい';
     }
 }
@@ -133,15 +193,27 @@ if ( isset( $_POST['edit_month'] ) ) {
         <form action = "" method = "POST">
             <div class = "edit">
                 <div class = "edit_header">
-                    <h1>メモ欄編集</h1>
+                    <h1>記録・編集</h1>
                 </div>
                 <div class = "edit_semiheader">
                     <h2><?=$yyyymm?>-</h2>
                     <input type = "hidden" name = "edit_month" value = "<?=$yyyymm?>">
                     <input type = "tel" class = "input_day" name = "edit_day" maxlength = "2" placeholder = "日にち入力" value = "">
+                    <input type = "tel" class = "input_hour" name = "edit_hour" maxlength="2" placeholder = "00" value = "">
+                    <p>:</p>
+                    <input type = "tel" class = "input_minute" name = "edit_minute" maxlength="2" placeholder = "00" value = "">
+                    <p>:</p>
+                    <input type = "tel" class = "input_second" name = "edit_second" maxlength="2" placeholder = "00" value = "">
+                    <div class = pcOnly>
+                        <?php if (isset($correct_day)) :?>
+                            <p class = "correct_day"><?php echo $correct_day;?></p>
+                        <?php endif;?> 
+                    </div>         
+                </div>
+                <div class = sptOnly>
                     <?php if (isset($correct_day)) :?>
                         <p class = "correct_day"><?php echo $correct_day;?></p>
-                    <?php endif;?>                
+                    <?php endif;?> 
                 </div>
                 <textarea class = "input_comment" name = "edit_comment" maxlength = "60" placeholder = "60文字以内で入力してください" rows = "4" cols = "40"></textarea><br>
                 <input type = "submit" class = "input_edit" value = "変更">
@@ -180,7 +252,7 @@ if ( isset( $_POST['edit_month'] ) ) {
                                 } 
                                 
                                 if($work['comment']) {
-                                    // $comment = mb_strimwidth($work['comment'],0,60,'...');
+                            
                                     $comment = $work['comment'];
                                 } 
 
