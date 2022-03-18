@@ -60,7 +60,7 @@ if ( isset( $_POST['edit_month'] ) ) {
                 $edit_second = $_POST['edit_second'];
                 
                 // $edit_hourの値が24未満であるか判定 
-                if($edit_hour < 24) {
+                if($edit_hour < 24 && $edit_minute < 60 && $edit_second < 60) {
                     // データベースに保存するためにフォーマットを合わせる
                     $format = "%02d:%02d:%02d";
                     $edit_time = sprintf($format,$edit_hour,$edit_minute,$edit_second);
